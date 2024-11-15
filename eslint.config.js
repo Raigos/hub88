@@ -45,7 +45,7 @@ export default tseslint.config(
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: './tsconfig.app.json'  // Updated to point directly to tsconfig.app.json
+        project: './tsconfig.app.json'
       }
     },
     plugins: {
@@ -57,6 +57,22 @@ export default tseslint.config(
       ...sharedRules,
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }]
+    }
+  },
+  // Config files config
+  {
+    files: ['**/*.config.ts'],
+    extends: [
+      ...tseslint.configs.recommended
+    ],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: './tsconfig.node.json'
+      }
+    },
+    rules: {
+      ...sharedRules
     }
   }
 )

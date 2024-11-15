@@ -1,14 +1,10 @@
 import { parse } from 'graphql'
 
-const COUNTRY_QUERY = parse(`
+export const COUNTRY_QUERY = parse(`
   query {
-    continent(code: "EU") {
-      code
+    countries {
       name
-      countries {
-        name
-        code
-      }
+      code
     }
   }
 `)
