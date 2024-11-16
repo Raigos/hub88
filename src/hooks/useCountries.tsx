@@ -34,7 +34,8 @@ export const useCountries = () => {
           throw new Error('Internal server error')
         }
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status.toString()}`)
+          const statusCode = response.status
+          throw new Error(`HTTP error! status: ${statusCode}`)
         }
         return response.json() as Promise<CountriesResponse>
       })
@@ -45,9 +46,7 @@ export const useCountries = () => {
         setError(err instanceof Error ? err : new Error('An error occurred'))
       })
       .finally(() => {
-        if (!controller.signal.aborted) {
-          setLoading(false)
-        }
+        setLoading(false)
       })
 
     return () => {
