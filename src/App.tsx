@@ -1,9 +1,11 @@
 import { Box, CircularProgress, Container, Paper, Stack, Typography } from '@mui/material'
 
+import Heading from './components/Heading.tsx'
 import { DataTable } from './components/Table'
 import { CountryCodeSearch } from './components/Textfield'
 import { useCountries } from './hooks/useCountries'
 import { useCountryCodeSearch } from './hooks/useCountryCodeSearch'
+
 
 const App = () => {
   const { countries, loading, error } = useCountries()
@@ -15,8 +17,15 @@ const App = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        flexDirection: 'Column',
+        gap: '16px'
       }}>
+      <Heading
+        heading={'ub88 Test Task'}
+        name={'Raigo Tuulik'}
+      />
+
       <Paper
         elevation={24}
         sx={{

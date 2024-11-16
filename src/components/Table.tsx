@@ -12,6 +12,7 @@ import {
 
 import { Country } from '../interfaces/countries.ts'
 
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     color: theme.palette.common.black
