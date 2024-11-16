@@ -10,6 +10,7 @@ import {
   TableRow
 } from '@mui/material'
 
+import { EmptyState } from './EmptyState.tsx'
 import { Country } from '../interfaces/countries.ts'
 
 
@@ -33,6 +34,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }))
 
 export function DataTable({ countries }: { countries: Country[] }) {
+  if (countries.length === 0) {
+    return (
+      <EmptyState />
+    )
+  }
+
   return (
     <Paper
       elevation={0}

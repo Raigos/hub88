@@ -35,7 +35,7 @@ export const useCountries = () => {
         }
         if (!response.ok) {
           const statusCode = response.status
-          throw new Error(`HTTP error! status: ${statusCode}`)
+          throw new Error(`HTTP error! status: ${statusCode.toString()}`)
         }
         return response.json() as Promise<CountriesResponse>
       })
