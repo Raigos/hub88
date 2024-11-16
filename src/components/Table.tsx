@@ -50,7 +50,6 @@ export function DataTable({ countries }: { countries: Country[] }) {
     >
       <TableContainer>
         <Table
-          sx={{ minWidth: 700 }}
           aria-label="customized table"
         >
           <TableHead sx={{
@@ -66,7 +65,6 @@ export function DataTable({ countries }: { countries: Country[] }) {
 
       <TableContainer sx={{ maxHeight: '400px', overflow: 'auto' }}>
         <Table
-          sx={{ minWidth: 700 }}
         >
           <TableBody>
             {countries.map(country => (
