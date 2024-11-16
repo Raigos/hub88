@@ -3,6 +3,10 @@
 A solution for Hub88's frontend developer challenge that displays and filters country data from GraphQL API. Because
 sometimes you just need to know if it's FI or FL (spoiler: Finland is FI 🇫🇮).
 
+## Live Demo
+
+Check out the live application: [https://hub88.vercel.app/](https://hub88.vercel.app/)
+
 ## Task Requirements
 
 - ✅ Consume GraphQL data from https://countries.trevorblades.com/
