@@ -16,8 +16,6 @@ const Heading = ({ heading, name }: HeadingProps) => {
 
   return (
     <Stack spacing={1} alignItems="center">
-
-
       <Typography
         variant="h2"
         sx={{
@@ -51,6 +49,7 @@ const Heading = ({ heading, name }: HeadingProps) => {
         >
           by
           <Typography
+            component="span"
             variant="subtitle1"
           >
             {name}</Typography> · <LinkedInIcon sx={{ fontSize: 20 }} />
