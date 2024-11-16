@@ -1,2 +1,23 @@
 /* Normalizes browser defaults */
 @import './reset.css';
+
+@keyframes AnimationName {
+  0% {
+    background-position: 50% 0%
+  }
+  50% {
+    background-position: 50% 100%
+  }
+  100% {
+    background-position: 50% 0%
+  }
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  /*hub88 color palette*/
+  background: linear-gradient(145deg, #8c4a97, #1f1a51, #125aa9);
+  background-size: 400% 400%;
+  animation: AnimationName 15s ease-in-out infinite;
+}

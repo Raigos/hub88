@@ -1,17 +1,32 @@
-import { Box, CircularProgress, Container, Divider, Paper, Typography } from '@mui/material'
+import { Box, CircularProgress, Container, Paper, Stack, Typography } from '@mui/material'
 
-import { DataTable } from './components/table.tsx'
-import { TextFields } from './components/textfield.tsx'
-import { useCountries } from './hooks/useCountries.tsx'
-
+import { DataTable } from './components/Table'
+import { CountryCodeSearch } from './components/Textfield'
+import { useCountries } from './hooks/useCountries'
+import { useCountryCodeSearch } from './hooks/useCountryCodeSearch'
 
 const App = () => {
   const { countries, loading, error } = useCountries()
-
+  const { filteredCountries, handleSearch, searchTerm } = useCountryCodeSearch(countries)
 
   return (
-    <Container>
-      <Paper sx={{ p: 2 }}>
+    <Container
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh'
+      }}>
+      <Paper
+        elevation={24}
+        sx={{
+          p: 4,
+          width: '100%',
+          maxWidth: 800,
+          background: 'rgba(255, 255, 255, 0.2)',
+          backdropFilter: 'blur(8px)',
+          borderRadius: 2
+        }}>
         {loading ? (
           <Box display="flex" justifyContent="center">
             <CircularProgress />
@@ -19,24 +34,20 @@ const App = () => {
         ) : error ? (
           <Box display="flex" justifyContent="center" color="error.main">
             <Typography color="error" variant="body2">
-
               Error: {error.message}
             </Typography>
           </Box>
         ) : (
-          <>
-            <TextFields />
-            <Divider />
-            <DataTable />
-          </>
+          <Stack spacing={2}>
+            <CountryCodeSearch
+              value={searchTerm}
+              onChange={(e) => {
+                handleSearch(e.target.value)
+              }}
+            />
+            <DataTable countries={filteredCountries} />
+          </Stack>
         )}
-        {/*<ul>*/}
-        {/*  {countries.map(country => (*/}
-        {/*    <li key={country.code}>*/}
-        {/*      {country.name} ({country.code})*/}
-        {/*    </li>*/}
-        {/*  ))}*/}
-        {/*</ul>*/}
       </Paper>
     </Container>
   )
